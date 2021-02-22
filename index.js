@@ -5,7 +5,7 @@ const cors = require('cors');
 const handle = require('./handler')
 
 // Routes
-//const quizRouter = require('./routes/quiz');
+const quizRouter = require('./routes/quiz');
 const userRouter = require('./routes/user');
 
 const app = express();
@@ -31,6 +31,7 @@ mongoose.connection.on('connected',()=>{
 
 //Routes in here
 app.use('/api/users', userRouter);
+app.use('/api/quiz', quizRouter);
 
 
 app.use(handle.error)
