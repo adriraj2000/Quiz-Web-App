@@ -17,7 +17,7 @@ router.post('/register', async (req, res, next) => {
         const { id, name, email, password } = user;
         const token = jwt.sign({ id, email }, process.env.SECRET);
         return res.status(201).json({
-            id, name, token, password
+            id, name, token, password,
         });
     } catch (err) {
         if (err.code === 11000) {
