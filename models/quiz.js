@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const testSchema = new Schema({
+const QuizSchema = new Schema({
   code: {
     type: String,
     required: true,
@@ -33,4 +33,4 @@ const testSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("test", testSchema);
+module.exports = mongoose.model("Quiz", QuizSchema);

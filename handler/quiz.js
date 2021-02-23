@@ -5,6 +5,36 @@ const axios = require('axios')
 //Open Trivia Database - https://opentdb.com/api.php
 
 const quizHandler = {
+
+    getquestions: async (req, res) => {
+
+        try {
+            const testid = req.body.code
+            const email = req.body.email
+            const doc = await Quiz.find({ code: testid })
+            //console.log(doc)
+            if (!doc) {
+                return res.status(400).json({ msg: "This test does not exist." })
+            }
+            if (Date.parse(doc.expiry) < Date.now()) {
+                return res.status(400).send({ message: "Test has expired!! " });
+            }
+            const check = await Result.findOne({ code: testid, email })
+            if (check) {
+                return res.status(400).send({ message: "Test already taken!" });
+            }
+            const questions = await axios.get("https://opentdb.com/api.php",{ 
+                params: {
+                    amount: Number(doc.amount),
+                    category: doc.topic,
+                },
+            });
+            
+        } catch (error) {
+            return res.status(500).json({ msg: error.message })
+        }
+    },
+
     getquiz: async (req, res) => {
         const email = req.body.email;
         try {
