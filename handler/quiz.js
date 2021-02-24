@@ -64,6 +64,34 @@ const quizHandler = {
         }
     },
 
+    submitquiz: async (req, res) => {
+        //const {testid,name,email,score} = req.body;
+
+        //console.log(req.body)
+        try {
+            const resultEntry = await Result.create(req.body)
+            res.status(200).json({
+                message: "Result added"
+            })
+        } catch (error) {
+            res.status(400).json({
+                "error": error
+            })
+        }
+    },
+
+    getresult: async (req, res) => {
+        const testid = req.body.code;
+        try {
+            const resultdoc = await Result.find({ code:testid }).exec();
+            return res.send(resultdoc);
+        } catch (err) {
+            return res.status(400).json({
+                "error":err
+            });
+        }
+    },
+
     getquiz: async (req, res) => {
         const email = req.body.email;
         try {
