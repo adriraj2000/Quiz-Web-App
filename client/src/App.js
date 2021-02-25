@@ -1,12 +1,16 @@
 import React from 'react';
+import Home from './components/Home';
+import dashboard from "./components/Dashboard";
+import { Route, Switch, useLocation, Redirect } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-        <p>
-          Hello from React
-        </p>
-    </div>
+    <React.Fragment>
+      <Switch>
+        <Route exact path="/dashboard" component={dashboard} />
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </React.Fragment>
   );
 }
 

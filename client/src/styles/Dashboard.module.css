@@ -1,0 +1,19 @@
+* {
+    font-family: Georgia, serif;
+    box-sizing: border-box;
+  
+    margin: 0 auto;
+  }
+  .heading {
+    text-align: center;
+  }
+  .buttons{
+    float: right;
+    margin: 0.5% 4%;
+    background: blue;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1% 1%;
+    display: block;
+    color: white;
+  }
