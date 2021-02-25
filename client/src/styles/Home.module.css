@@ -5,7 +5,7 @@
   }
 
 .header{
-    background: black;
+    background: rgb(60, 57, 202);
     padding: 0 0;
     display: block;
     position: relative;
@@ -15,7 +15,9 @@
     display: grid;
     color: white;
     font-size: 1.2em;
+    
 }
+
 
 .logo{
     grid-column: 1/2;
@@ -32,6 +34,10 @@
     padding: 2% 10% 2% 10%;
     border-radius: 20px;
     border: 2px solid white;
+}
+
+.navlinks2:hover{
+    background: rgb(7, 5, 61);
 }
 
 
